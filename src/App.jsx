@@ -1,19 +1,26 @@
-import { useState } from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
-import Home from './components/Home'
-import Products from './components/Products'
+import Home from './page/Home'
+import Products from './page/Products'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Detail from './page/Detail'
+import Login from './page/Login'
+import Register from './page/Register'
+import PageNotFound from './page/PageNotFound'
 function App() {
   return (
     <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/product" element={<Products/>} />
-          <Route path="/product/:slug" element={<Detail/>} />
-        </Routes>
+
+      <Routes >
+        <Route element={<Navbar />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/product" element={<Products />} />
+          <Route path="/product/:slug" element={<Detail />} />
+          <Route path='/login'element={<Login/>} />
+          <Route path='/register' element={<Register/>} />
+          <Route path="*" element={<PageNotFound />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, Outlet } from 'react-router-dom'
 export default function Navbar() {
     const [totalQuantity, setTotalQuantity] = useState(0);
     const carts = useSelector(store => store.cart.items);
@@ -12,7 +12,7 @@ export default function Navbar() {
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg bg-white py-3 shadow-sm">
+            <nav className="navbar navbar-expand-lg bg-white py-3 shadow-sm sticky-top">
                 <div className="container">
                     <Link className="navbar-brand fw-bold fs-4 text-decoration-none" to="/">
                         CLOTHES COLLECTION 
@@ -44,19 +44,20 @@ export default function Navbar() {
                             </li>
                         </ul>
                         <div className="buttons">
-                            <a href="" className="btn btn-outline-dark">
-                               <i className="fa fa-sign-in me-1"></i> Login</a>
-                               <a href="" className="btn btn-outline-dark ms-2">
-                               <i className="fa fa-user-plus me-1"></i> Register</a>
-                               <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" 
+                            <NavLink to="/login" className="btn btn-outline-dark">
+                               <i className="fa fa-sign-in me-1"></i> Login</NavLink>
+                               <NavLink to="/register" className="btn btn-outline-dark ms-2">
+                               <i className="fa fa-user-plus me-1"></i> Register</NavLink>
+                               <NavLink data-bs-toggle="offcanvas" to="#offcanvasExample" role="button" 
                                aria-controls="offcanvasExample" className="btn btn-outline-dark ms-2" 
                                >
                                 <i className="fa fa-shopping-cart me-1"></i> Cart ({totalQuantity})
-                               </a>
+                               </NavLink>
                         </div>
                     </div>
                 </div>
             </nav>
+            <Outlet/>
         </div>
     )
 }

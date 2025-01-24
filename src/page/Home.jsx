@@ -1,7 +1,7 @@
 import React from 'react'
 import bg from '../assets/bg1.jpg'
 import Products from './Products'
-import CartTap from './CartTap'
+import CartTap from '../components/CartTap'
 
 export default function Home() {
     return (

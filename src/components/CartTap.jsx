@@ -11,7 +11,7 @@ export default function CartTap() {
     <div>
       <div className="offcanvas offcanvas-end" tabIndex={-1} id="offcanvasExample">
         <div className="offcanvas-header">
-          <h5 className="offcanvas-title">Your Cart</h5>
+          <h5 className="offcanvas-title">Shopping Cart</h5>
           <button type="button" className="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
 

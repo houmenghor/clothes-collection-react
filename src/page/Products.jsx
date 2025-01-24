@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import ProductList from './Data';
-import CartTap from './CartTap';
+import ProductList from '../components/Data';
+import CartTap from '../components/CartTap';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../store/cart';
 import { Link } from 'react-router-dom';
