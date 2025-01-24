@@ -81,7 +81,7 @@ const Products = () => {
               <Link to={`/product/${product.slug}`}>
               <img
                 src={product.img}
-                height="260px"
+                width="100%" height="290px"
                 className="card-img-top"
                 alt={product.name}
               />
