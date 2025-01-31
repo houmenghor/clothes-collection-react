@@ -4,11 +4,12 @@ import CartTap from '../components/CartTap';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../store/cart';
 import { Link } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Products = () => {
   const [filter, setFilter] = useState([]); // Filtered products
   const [loading, setLoading] = useState(true); // Loading state
-  
+  const notify = () => toast.success('Product added Successfully!');
   const carts = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
 
@@ -33,15 +34,17 @@ const Products = () => {
   };
 
   const handleAddToCart = (product) => {
+
     dispatch(
       addToCart({
         productId: product.id,
         quantity: 1,
-      })
+      }),
     );
+    notify();
   };
   console.log(carts)
-  
+
   const Loading = () => (
     <div className="text-center my-5">
       <h2>Loading...</h2>
@@ -79,12 +82,12 @@ const Products = () => {
           >
             <div className="card h-100 text-center p-4">
               <Link to={`/product/${product.slug}`}>
-              <img
-                src={product.img}
-                width="100%" height="290px"
-                className="card-img-top"
-                alt={product.name}
-              />
+                <img
+                  src={product.img}
+                  width="100%" height="290px"
+                  className="card-img-top"
+                  alt={product.name}
+                />
               </Link>
               <div className="card-body">
                 <h5 className="card-title m-0">
@@ -107,6 +110,7 @@ const Products = () => {
 
   return (
     <div>
+       <Toaster /> {/* Add this line */}
       <div className="container my-4 py-1">
         <div className="row">
           <div className="col-12 mb-5">

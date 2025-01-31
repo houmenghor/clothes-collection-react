@@ -1,6 +1,7 @@
 import React from 'react'
 import './Register.css'
 import bg from '../assets/bg1.jpg'
+import { NavLink } from 'react-router-dom'
 export default function Register() {
   return (
     <>
@@ -41,7 +42,7 @@ export default function Register() {
                   <button className="form-btn">Sign up</button>
                 </form>
                 <p className="sign-up-label">
-                  <span>Already have an account?</span><a href="login.html" className="sign-up-link">Login</a>
+                  <span>Already have an account?</span><NavLink to="/login" className="sign-up-link">Login</NavLink>
                 </p>
                 <div className="buttons-container">
                   <div className="apple-login-button">
